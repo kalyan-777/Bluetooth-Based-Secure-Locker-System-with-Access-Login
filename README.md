@@ -126,13 +126,11 @@ You can add your hardware and application photographs to the `Images` folder.
 For example:
 
 ```markdown
-![Project Hardware](Images/circuit.jpg)
-
-![Circuit](Images/circuit.jpg)
-
-![LCD Display](Images/lcd.jpg)
-
-![Bluetooth Application](Images/bluetooth-app.jpg)
+hardware.png
+setup.png
+lcd.png
+bluetooth-app.png
+final-project.png
 ```
 
 ##  Applications
