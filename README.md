@@ -126,11 +126,27 @@ You can add your hardware and application photographs to the `Images` folder.
 For example:
 
 ```markdown
-hardware.png
-setup.png
-lcd.png
-bluetooth-app.png
-final-project.png
+## 📸 Project Images
+
+### Project Hardware
+
+![Project Hardware](./ChatGPT%20Image%20Sep%2021,%202026,%2007_19_15%20PM.png)
+
+### Project Setup
+
+![Project Setup](./ChatGPT%20Image%20Sep%2021,%202026,%2007_19_27%20PM.png)
+
+### LCD Display
+
+![LCD Display](./ChatGPT%20Image%20Sep%2021,%202026,%2007_19_34%20PM.png)
+
+### Bluetooth Application
+
+![Bluetooth Application](./ChatGPT%20Image%20Sep%2021,%202026,%2007_19_42%20PM.png)
+
+### Final Project
+
+![Final Project](./ChatGPT%20Image%20Sep%2021,%202026,%2007_19_57%20PM.png)
 ```
 
 ##  Applications
