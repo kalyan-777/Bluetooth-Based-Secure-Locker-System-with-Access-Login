@@ -59,6 +59,10 @@ The user can enter the login password through a Bluetooth-enabled mobile applica
 9. The electronic locker is activated/opened.
 10. If the password is incorrect, access is denied.
 
+##  Hardware Block Diagram
+
+
+
 ##  System Flow
 
 ```text
