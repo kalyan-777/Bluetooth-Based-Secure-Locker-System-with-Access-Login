@@ -60,7 +60,7 @@ The user can enter the login password through a Bluetooth-enabled mobile applica
 10. If the password is incorrect, access is denied.
 
 
-## 🧩 Hardware Block Diagram
+##  Hardware Block Diagram
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/kalyan-777/Bluetooth-Based-Secure-Locker-System-with-Access-Login/a90e7532495e3d0f17da85865c0406e18cb6938d/block_diagram.jpg" alt="Hardware Block Diagram" width="800">
