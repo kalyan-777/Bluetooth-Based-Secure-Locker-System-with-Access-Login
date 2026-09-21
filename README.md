@@ -121,17 +121,8 @@ Bluetooth-Based-Secure-Locker-System-with-Access-Login/
 
 ##  Project Images
 
-You can add your hardware and application photographs to the `Images` folder.
 
-For example:
-
-```markdown
-## 📸 Project Images
-
-
-### Project Hardware
-
-
+![Circuit Diagram](https://raw.githubusercontent.com/kalyan-777/Bluetooth-Based-Secure-Locker-System-with-Access-Login/6c58cd8a3afd7e91de0b770cae5ad0ce60564bf1/circuit.jpg.png)
 
 ##  Applications
 
