@@ -130,21 +130,7 @@ For example:
 
 ### Project Hardware
 
-### Project Image 1
-<img src="./ChatGPT%20Image%20Sep%2021,%202026,%2007_19_15%20PM.png" width="500">
 
-### Project Image 2
-<img src="./ChatGPT%20Image%20Sep%2021,%202026,%2007_19_27%20PM.png" width="500">
-
-### Project Image 3
-<img src="./ChatGPT%20Image%20Sep%2021,%202026,%2007_19_34%20PM.png" width="500">
-
-### Project Image 4
-<img src="./ChatGPT%20Image%20Sep%2021,%202026,%2007_19_42%20PM.png" width="500">
-
-### Project Image 5
-<img src="./ChatGPT%20Image%20Sep%2021,%202026,%2007_19_57%20PM.png" width="500">
-```
 
 ##  Applications
 
