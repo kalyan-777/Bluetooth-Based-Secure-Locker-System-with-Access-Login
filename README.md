@@ -134,7 +134,9 @@ Bluetooth-Based-Secure-Locker-System-with-Access-Login/
 
 ![Circuit 3](https://raw.githubusercontent.com/kalyan-777/Bluetooth-Based-Secure-Locker-System-with-Access-Login/6e2e008163f53a430d16af409dfe20bae66872f3/circuit3.jpg)
 
-![Circuit 2](https://raw.githubusercontent.com/kalyan-777/Bluetooth-Based-Secure-Locker-System-with-Access-Login/c14ddb0102dff372123ddbad9e17ba269d318174/circuit2.jpg.png)
+### Circuit 4
+
+![Circuit 4](https://raw.githubusercontent.com/kalyan-777/Bluetooth-Based-Secure-Locker-System-with-Access-Login/36de40e3c7a5e846308508b0ee66dcd2d0991952/circuit4.jpg)
 
 ![Circuit 4](https://raw.githubusercontent.com/kalyan-777/Bluetooth-Based-Secure-Locker-System-with-Access-Login/9cf58e4d1c7404d1bdd5a8a53ce40488ce0b95f7/circuit4.jpg.png)
 
