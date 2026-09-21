@@ -1,0 +1,4 @@
+--cpu ARM7TDMI "startup.o" "bluetooth.o" "buzzer.o" "delay.o" "eeprom.o" "keypad.o" "lcd.o" "menu.o" "motor.o" "projectmain.o" "rtc.o" "security.o" "uart.o" --strict --scatter "majorproject12.sct" 
+--autoat --summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\majorproject12.map" -o "majorproject12.axf"

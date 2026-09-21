@@ -1,0 +1,11 @@
+security.o: security.c
+security.o: C:\KeilARM\ARM\INC\Philips\lpc214x.h
+security.o: C:\KeilARM\ARM\RV31\INC\string.h
+security.o: security.h
+security.o: types.h
+security.o: defines.h
+security.o: lcd.h
+security.o: uart.h
+security.o: rtc.h
+security.o: eeprom.h
+security.o: buzzer.h

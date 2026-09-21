@@ -1,0 +1,13 @@
+menu.o: menu.c
+menu.o: C:\KeilARM\ARM\INC\Philips\lpc214x.h
+menu.o: C:\KeilARM\ARM\RV31\INC\string.h
+menu.o: delay.h
+menu.o: types.h
+menu.o: menu.h
+menu.o: defines.h
+menu.o: lcd.h
+menu.o: keypad.h
+menu.o: rtc.h
+menu.o: eeprom.h
+menu.o: buzzer.h
+menu.o: security.h
