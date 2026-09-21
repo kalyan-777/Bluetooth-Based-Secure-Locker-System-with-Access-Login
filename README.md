@@ -127,7 +127,7 @@ For example:
 
 ```markdown
 ## 📸 Project Images
-https://github.com/kalyan-777/Bluetooth-Based-Secure-Locker-System-with-Access-Login/blob/c5e0d1a8e28337b0f2df6abb5cbf724928d576ba/circuit.jpg.png
+https://github.com/kalyan-777/Bluetooth-Based-Secure-Locker-System-with-Access-Login/blob/c5e0d1a8e28337b0f2df6abb5cbf724928d576ba/circuit.jpg
 
 ### Project Hardware
 
