@@ -126,7 +126,7 @@ You can add your hardware and application photographs to the `Images` folder.
 For example:
 
 ```markdown
-![Project Hardware](https://github.com/kalyan-777/Bluetooth-Based-Secure-Locker-System-with-Access-Login/blob/master/ChatGPT%20Image%20Sep%2021,%202026,%2007_19_15%20PM.png?raw=true)
+![Project Hardware](Images/circuit.jpg)
 
 ![Circuit](Images/circuit.jpg)
 
