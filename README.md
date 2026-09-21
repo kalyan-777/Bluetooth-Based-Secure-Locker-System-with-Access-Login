@@ -130,23 +130,20 @@ For example:
 
 ### Project Hardware
 
-![Project Hardware](./ChatGPT%20Image%20Sep%2021,%202026,%2007_19_15%20PM.png)
+### Project Image 1
+<img src="./ChatGPT%20Image%20Sep%2021,%202026,%2007_19_15%20PM.png" width="500">
 
-### Project Setup
+### Project Image 2
+<img src="./ChatGPT%20Image%20Sep%2021,%202026,%2007_19_27%20PM.png" width="500">
 
-![Project Setup](./ChatGPT%20Image%20Sep%2021,%202026,%2007_19_27%20PM.png)
+### Project Image 3
+<img src="./ChatGPT%20Image%20Sep%2021,%202026,%2007_19_34%20PM.png" width="500">
 
-### LCD Display
+### Project Image 4
+<img src="./ChatGPT%20Image%20Sep%2021,%202026,%2007_19_42%20PM.png" width="500">
 
-![LCD Display](./ChatGPT%20Image%20Sep%2021,%202026,%2007_19_34%20PM.png)
-
-### Bluetooth Application
-
-![Bluetooth Application](./ChatGPT%20Image%20Sep%2021,%202026,%2007_19_42%20PM.png)
-
-### Final Project
-
-![Final Project](./ChatGPT%20Image%20Sep%2021,%202026,%2007_19_57%20PM.png)
+### Project Image 5
+<img src="./ChatGPT%20Image%20Sep%2021,%202026,%2007_19_57%20PM.png" width="500">
 ```
 
 ##  Applications
