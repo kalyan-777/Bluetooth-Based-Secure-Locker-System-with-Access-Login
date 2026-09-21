@@ -34,7 +34,7 @@ The user can enter the login password through a Bluetooth-enabled mobile applica
 * Flash Magic / ISP Programmer
 * Bluetooth Control Application
 
-## 🔧 Technologies Used
+##  Technologies Used
 
 | Technology | Purpose                 |
 | ---------- | ----------------------- |
