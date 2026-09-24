@@ -260,11 +260,11 @@ The **16×2 LCD** provides a local user interface and displays the current syste
 Depending on the operation, the LCD can display messages such as:
 
 ```text
-WELCOME
+BLUETOOTH SECURE LOCKER SYSTEM
 ```
 
 ```text
-ENTER PASSWORD
+WAITING FOR BT PWD
 ```
 
 ```text
