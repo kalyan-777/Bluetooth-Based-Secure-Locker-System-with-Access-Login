@@ -48,8 +48,6 @@ The user can enter the login password through a Bluetooth-enabled mobile applica
 
 ##  Working Principle
 
-## 🔄 Working Principle
-
 The **Bluetooth Based Secure Locker System with Access Login** is an embedded security system developed using the **LPC2148 ARM7 microcontroller**. The system provides controlled access to a locker by combining **Bluetooth communication, UART, password authentication, I2C EEPROM storage, LCD interfacing, and an electronic locking mechanism**.
 
 The complete working process is divided into initialization, Bluetooth communication, password reception, password verification, and locker control.
