@@ -409,7 +409,7 @@ The complete operation can therefore be summarized as:
 15. If the passwords do not match, LCD displays **ACCESS DENIED**.
 16. The locker remains locked and the system waits for another authentication attempt.
 
-### 🔐 Core Working Concept
+###  Core Working Concept
 
 The security of the system is based on the following chain:
 
