@@ -48,16 +48,397 @@ The user can enter the login password through a Bluetooth-enabled mobile applica
 
 ##  Working Principle
 
+## 🔄 Working Principle
+
+The **Bluetooth Based Secure Locker System with Access Login** is an embedded security system developed using the **LPC2148 ARM7 microcontroller**. The system provides controlled access to a locker by combining **Bluetooth communication, UART, password authentication, I2C EEPROM storage, LCD interfacing, and an electronic locking mechanism**.
+
+The complete working process is divided into initialization, Bluetooth communication, password reception, password verification, and locker control.
+
+### 1. System Initialization
+
+When the system is powered ON, the LPC2148 microcontroller initializes all the required peripherals and modules.
+
+The following peripherals are configured:
+
+* **UART** – for communication between the LPC2148 and HC-05 Bluetooth module.
+* **I2C** – for communication with the external EEPROM.
+* **LCD** – for displaying system and authentication status.
+* **GPIO pins** – for controlling the locker mechanism, buzzer, and other peripherals.
+* **Security module** – for handling password authentication and access control.
+
+After initialization, the LCD displays the welcome/login information and the system waits for the user to establish a Bluetooth connection.
+
+### 2. Bluetooth Connection
+
+The user connects an Android smartphone to the **HC-05 Bluetooth module**.
+
+The HC-05 acts as a wireless serial communication interface between the mobile phone and the LPC2148.
+
+The communication path is:
+
+```text
+Android Mobile
+      │
+      │ Bluetooth
+      ▼
+    HC-05
+      │
+      │ UART
+      ▼
+   LPC2148
+```
+
+The user can enter the required password using the Bluetooth control application.
+
+### 3. Password Transmission Through UART
+
+When the user enters the password in the mobile application, the password is transmitted wirelessly to the HC-05 module.
+
+The HC-05 converts the received Bluetooth data into serial data and sends it to the **UART receiver of the LPC2148**.
+
+The LPC2148 receives the password character by character through UART and stores the received characters in a temporary buffer.
+
+For example:
+
+```text
+User enters:
+1234
+
+UART receives:
+'1' → '2' → '3' → '4'
+```
+
+After receiving the complete password, the microcontroller starts the authentication process.
+
+### 4. Password Storage Using I2C EEPROM
+
+The authorized password is stored in an external **I2C EEPROM**.
+
+The EEPROM is used because it is **non-volatile memory**, which means the stored password remains available even when the main power supply is switched OFF.
+
+The LPC2148 communicates with the EEPROM using the two-wire I2C interface:
+
+```text
+LPC2148                    I2C EEPROM
+   │                           │
+   ├──── SDA ──────────────────┤
+   │                           │
+   └──── SCL ──────────────────┤
+                               │
+                              GND
+```
+
+Where:
+
+* **SDA – Serial Data**
+* **SCL – Serial Clock**
+
+The LPC2148 acts as the I2C master and accesses the EEPROM to read the stored password.
+
+### 5. Password Verification
+
+Once the password is received through Bluetooth, the LPC2148 reads the authorized password from the EEPROM.
+
+The microcontroller then compares:
+
+```text
+Password entered by user
+          VS
+Password stored in EEPROM
+```
+
+The comparison is performed character by character.
+
+For example, if the stored password is:
+
+```text
+1234
+```
+
+and the user enters:
+
+```text
+1234
+```
+
+the characters match:
+
+```text
+1 = 1  ✓
+2 = 2  ✓
+3 = 3  ✓
+4 = 4  ✓
+```
+
+Therefore, authentication is successful.
+
+If even one character is different, authentication fails.
+
+Example:
+
+```text
+Stored Password : 1234
+Entered Password: 1254
+
+1 = 1  ✓
+2 = 2  ✓
+5 ≠ 3  ✗
+```
+
+The system therefore denies access.
+
+### 6. Successful Authentication
+
+If the entered password matches the password stored in EEPROM, the LPC2148 grants access to the locker.
+
+The LCD displays:
+
+```text
+ACCESS OK
+```
+
+The microcontroller then generates the required control signal to activate the locker mechanism.
+
+The control sequence is:
+
+```text
+Correct Password
+       │
+       ▼
+   LPC2148
+       │
+       ▼
+Control Signal
+       │
+       ▼
+Relay / Motor / Lock Mechanism
+       │
+       ▼
+   Locker Opens
+```
+
+Thus, only a user providing the correct password can activate the locker-opening mechanism.
+
+### 7. Incorrect Password
+
+If the password entered by the user does not match the password stored in EEPROM, the LPC2148 rejects the authentication request.
+
+The locker-opening mechanism is not activated.
+
+The LCD can indicate the failed authentication status:
+
+```text
+ACCESS DENIED
+```
+
+The system then remains in the locked state and waits for another authentication attempt.
+
+The basic logic is:
+
+```text
+              Password Received
+                     │
+                     ▼
+             Read EEPROM Password
+                     │
+                     ▼
+              Compare Passwords
+                     │
+             ┌───────┴────────┐
+             │                │
+          MATCH            NO MATCH
+             │                │
+             ▼                ▼
+        ACCESS OK       ACCESS DENIED
+             │                │
+             ▼                ▼
+       Open Locker      Keep Locker Locked
+```
+
+### 8. LCD Status Display
+
+The **16×2 LCD** provides a local user interface and displays the current system status.
+
+Depending on the operation, the LCD can display messages such as:
+
+```text
+WELCOME
+```
+
+```text
+ENTER PASSWORD
+```
+
+```text
+ACCESS OK
+```
+
+```text
+ACCESS DENIED
+```
+
+This allows the user to understand the current state of the authentication process without directly accessing the microcontroller.
+
+### 9. Security and Alert Mechanism
+
+The project also contains dedicated modules for **security and buzzer control**.
+
+The buzzer can be used to provide an audible indication during important events such as authentication failure or other security-related conditions.
+
+The security logic handles the password verification and determines whether the locker-opening operation should be allowed.
+
+### 10. Locker Control
+
+After successful authentication, the LPC2148 controls the output connected to the locker mechanism.
+
+The microcontroller itself does not directly drive a high-current lock or motor. Instead, an appropriate **driver/relay interface** can be used between the LPC2148 and the locking mechanism.
+
+The basic control flow is:
+
+```text
+LPC2148 GPIO
+     │
+     ▼
+Driver / Relay
+     │
+     ▼
+Electronic Lock
+     │
+     ▼
+Locker State Changes
+```
+
+After the required access period, the locker can be returned to its locked state according to the implemented control logic.
+
+### 11. Complete System Flow
+
+The complete working of the project can be summarized as follows:
+
+```text
+                     POWER ON
+                         │
+                         ▼
+               Initialize LPC2148
+                         │
+             ┌───────────┼───────────┐
+             ▼           ▼           ▼
+           UART         I2C         LCD
+             │           │           │
+             ▼           ▼           ▼
+           HC-05      EEPROM      Display
+             │           │
+             │           │
+             ▼           ▼
+        Bluetooth     Stored
+          Input       Password
+             │           │
+             └─────┬─────┘
+                   ▼
+            Receive Password
+                   │
+                   ▼
+             Compare Password
+                   │
+             ┌─────┴─────┐
+             │           │
+          Correct      Incorrect
+             │           │
+             ▼           ▼
+        ACCESS OK   ACCESS DENIED
+             │           │
+             ▼           ▼
+       Activate Lock   Keep Locked
+        Mechanism
+             │
+             ▼
+       Locker Opens
+```
+
+### 12. Software Module Interaction
+
+The firmware is organized into multiple modules to make the embedded application easier to develop, test, debug, and maintain.
+
+```text
+                    projectmain.c
+                         │
+       ┌─────────────────┼─────────────────┐
+       │                 │                 │
+       ▼                 ▼                 ▼
+     UART              LCD              EEPROM
+       │                 │                 │
+       ▼                 ▼                 ▼
+    HC-05            Display          Password
+  Communication       Status           Storage
+       │
+       ▼
+   Bluetooth
+   Password
+       │
+       ▼
+    Security
+       │
+       ├──────────────► Password Verification
+       │
+       ├──────────────► Access Control
+       │
+       ▼
+     Motor / Lock
+       │
+       ▼
+    Locker Access
+```
+
+The repository contains dedicated source and header files for modules including **Bluetooth, UART, LCD, EEPROM, keypad, menu, motor, buzzer, RTC, and security**, allowing the functionality to be separated into reusable components.
+
+### 13. Overall Operation
+
+The complete operation can therefore be summarized as:
+
 1. Power ON the system.
-2. The LCD displays the welcome/login message.
-3. Connect the mobile phone to the **HC-05 Bluetooth module**.
-4. Open the Bluetooth control application.
-5. Enter the required login password.
-6. The LPC2148 receives the password through UART.
-7. The entered password is compared with the stored password.
-8. If the password is correct, the system displays **"ACCESS OK"** on the LCD.
-9. The electronic locker is activated/opened.
-10. If the password is incorrect, access is denied.
+2. LPC2148 initializes UART, I2C, LCD, GPIO, and other required peripherals.
+3. LCD displays the initial login/welcome message.
+4. User connects the smartphone to the HC-05 Bluetooth module.
+5. User enters the authentication password through the Bluetooth application.
+6. HC-05 receives the Bluetooth data.
+7. HC-05 transfers the received data to LPC2148 through UART.
+8. LPC2148 collects and processes the received password.
+9. LPC2148 reads the authorized password from I2C EEPROM.
+10. The received password is compared with the stored password.
+11. If both passwords match, authentication is successful.
+12. LCD displays **ACCESS OK**.
+13. LPC2148 activates the locker control mechanism.
+14. The locker is opened for authorized access.
+15. If the passwords do not match, LCD displays **ACCESS DENIED**.
+16. The locker remains locked and the system waits for another authentication attempt.
+
+### 🔐 Core Working Concept
+
+The security of the system is based on the following chain:
+
+```text
+Bluetooth Authentication
+          ↓
+      HC-05
+          ↓
+       UART
+          ↓
+      LPC2148
+          ↓
+    EEPROM Password
+          ↓
+    Password Compare
+          ↓
+    ┌─────┴─────┐
+    ↓           ↓
+  MATCH       NO MATCH
+    ↓           ↓
+ACCESS OK   ACCESS DENIED
+    ↓
+Locker Opens
+```
+
+This architecture combines **wireless communication, embedded processing, non-volatile password storage, user feedback, and physical access control** into a single embedded security system.
+
 
 
 ##  Hardware Block Diagram
